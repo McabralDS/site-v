@@ -1,34 +1,51 @@
 <template>
-  <div class="flex flex-col items-center space-y-4 mt-8">
+  <div class="page-container">
+    <h1 class="text-4xl text-white text-center font-bold mb-12">Turismo</h1>
+    <div class="container mx-auto py-12 px-4 mt-12">
 
-  <h1 class="text-4xl text-white underline">Turismo</h1>
+      <div class="flex flex-col md:flex-row items-stretch justify-center gap-6 flex-wrap">
+        <div 
+          v-for="rota in rotas" 
+          :key="rota.nome" 
+          class="bg-white p-6 rounded-lg shadow-lg border-4 border-amber-300 flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)]"
+        >
+          <h2 class="text-2xl font-bold text-center mb-4 flex items-center justify-center">
+            <Icon :name="rota.icone || 'material-symbols:restaurant'" size="28" class="text-amber-500 mr-2" />
+            {{ rota.nome }}
+          </h2>
+          
+            <table class="w-full text-left">
+            <tbody>
+              <tr v-for="local in rota.locais" :key="local.nome" class="border-b border-gray-200 last:border-0">
+              <td class="py-3 align-top">
+                <a 
+                :href="local.link" 
+                target="_blank" 
+                class="text-blue-600 hover:text-blue-800 font-medium flex items-center"
+                >
+                <Icon name="mdi:map-marker" class="mr-1 text-red-500" />
+                {{ local.nome }}
+                <Icon name="mdi:open-in-new" size="14" class="ml-1" />
+                </a>
+                <p class="text-gray-600 text-sm ml-6">{{ local.endereco }}</p>
+              </td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+      </div>
 
-  <div class="flex flex-row items-top justify-center space-x-4">
-    <div v-for="rota in rotas" :key="rota.nome" class="bg-white p-4 rounded shadow-md border-4 border-amber-300 flex flex-col ">
-      <h2 class="text-2xl font-bold text-center mb-2">
-        <Icon :name="rota.icone || 'material-symbols:map'" size="24" class="text-amber-500" />
-        {{ rota.nome }}</h2>
-      
-      <ul>
-        <li v-for="local in rota.locais" :key="local.nome">
-          <span v-if="local.grupo">
-          <h3 class="text-xl font-semibold">{{ local.grupo }}</h3>
-          </span>
-          <a :href="local.link" target="_blank" class="text-blue-500 underline">{{ local.nome }}</a>
-          <p class="">{{ local.endereco }}</p>
-        </li>
-      </ul>
+      <div class="flex justify-center mt-12">
+        <button 
+          @click="() => navigateTo('/')" 
+          class="px-6 py-3 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors flex items-center"
+        >
+          <Icon name="mdi:arrow-left" class="mr-2" />
+          Voltar
+        </button>
+      </div>
     </div>
-
   </div>
-
-
-
-  <div class="flex flex-row items-center justify-center space-x-4">
-      <!-- <Button class="mt-4 px-2 py-2 bg-green-400 text-white rounded">Ver Mapa </Button> -->
-      <button @click="() => navigateTo('/')" class="mt-4 px-4 py-2 bg-purple-400 text-white rounded">Voltar</button>
-  </div>
-</div>
 </template>
 
 <script lang="ts" setup>
@@ -157,6 +174,31 @@ const rotas = [
 
 </script>
 
-<style>
 
+<style>
+.page-container {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 16px; /* Adiciona espaço no topo */
+  margin: 0;
+  width: 100%;
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+  .page-container {
+    padding-top: 8px;
+  }
+
+  h1.text-4xl {
+    font-size: 2.5rem;
+    margin-top: 16px;
+  }
+}
+
+li::before {
+    content: '';
+    margin-left: 0;
+
+}
 </style>

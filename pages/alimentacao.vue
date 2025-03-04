@@ -1,34 +1,51 @@
 <template>
-  <div class="flex flex-col items-center space-y-4 mt-8">
+  <div class="page-container">
+    <h1 class="text-4xl text-white text-center font-bold mb-12">Alimentação</h1>
+    <div class="container mx-auto py-12 px-4 mt-12">
 
-  <h1 class="text-4xl text-white underline">Alimentação</h1>
+      <div class="flex flex-col md:flex-row items-stretch justify-center gap-6 flex-wrap">
+        <div 
+          v-for="rota in rotas" 
+          :key="rota.nome" 
+          class="bg-white p-6 rounded-lg shadow-lg border-4 border-amber-300 flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)]"
+        >
+          <h2 class="text-2xl font-bold text-center mb-4 flex items-center justify-center">
+            <Icon :name="rota.icone || 'material-symbols:restaurant'" size="28" class="text-amber-500 mr-2" />
+            {{ rota.nome }}
+          </h2>
+          
+            <table class="w-full text-left">
+            <tbody>
+              <tr v-for="local in rota.locais" :key="local.nome" class="border-b border-gray-200 last:border-0">
+              <td class="py-3 align-top">
+                <a 
+                :href="local.link" 
+                target="_blank" 
+                class="text-blue-600 hover:text-blue-800 font-medium flex items-center"
+                >
+                <Icon name="mdi:map-marker" class="mr-1 text-red-500" />
+                {{ local.nome }}
+                <Icon name="mdi:open-in-new" size="14" class="ml-1" />
+                </a>
+                <p class="text-gray-600 text-sm ml-6">{{ local.endereco }}</p>
+              </td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+      </div>
 
-  <div class="flex flex-row items-top justify-center space-x-4">
-    <div v-for="rota in rotas" :key="rota.nome" class="bg-white p-4 rounded shadow-md border-4 border-amber-300 flex flex-col ">
-      <h2 class="text-2xl font-bold text-center mb-2">
-        <Icon :name="rota.icone || 'material-symbols:map'" size="24" class="text-amber-500" />
-        {{ rota.nome }}</h2>
-      
-      <ul>
-        <li v-for="local in rota.locais" :key="local.nome">
-          <span v-if="local.grupo">
-          <h3 class="text-xl font-semibold">{{ local.grupo }}</h3>
-          </span>
-          <a :href="local.link" target="_blank" class="text-blue-500 underline">{{ local.nome }}</a>
-          <p class="">{{ local.endereco }}</p>
-        </li>
-      </ul>
+      <div class="flex justify-center mt-12">
+        <button 
+          @click="() => navigateTo('/')" 
+          class="px-6 py-3 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors flex items-center"
+        >
+          <Icon name="mdi:arrow-left" class="mr-2" />
+          Voltar
+        </button>
+      </div>
     </div>
-
   </div>
-
-
-
-  <div class="flex flex-row items-center justify-center space-x-4">
-      <!-- <Button class="mt-4 px-2 py-2 bg-green-400 text-white rounded">Ver Mapa </Button> -->
-      <button @click="() => navigateTo('/')" class="mt-4 px-4 py-2 bg-purple-400 text-white rounded">Voltar</button>
-  </div>
-</div>
 </template>
 
 <script lang="ts" setup>
@@ -43,11 +60,7 @@ const rotas = [
         endereco: 'Rua Mariana Bronnemann, 527 - Velha, Blumenau - SC',
         link: 'https://www.google.com/maps/place/Figueira+Restaurante/@-26.911982,-49.0879014,17z/data=!3m1!4b1!4m6!3m5!1s0x94df192bbbd5d5bb:0x2a96366e69456282!8m2!3d-26.9119868!4d-49.0853265!16s%2Fg%2F1tdwlnt4?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'
         },
-      {
-        nome: 'Norden Bar & Biergarten',
-        endereco: 'Rua Xavantina, 100 - Boa Vista, Blumenau - SC',
-        link: 'https://www.google.com/maps/place/Norden+Blumenau/@-26.8996433,-49.0801889,17z/data=!3m1!4b1!4m6!3m5!1s0x94df1f708192624b:0x47182bd2bb404747!8m2!3d-26.8996482!4d-49.0755755!16s%2Fg%2F11rd4633mh?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'      
-      },
+     
       {
         nome: 'Rosa Mexicana',
         endereco: 'Rua Carlos Rischbieter, 61 - Victor Konder, Blumenau - SC',
@@ -68,10 +81,15 @@ const rotas = [
         endereco: 'Alameda Rio Branco, 403 - Vila Formosa, Blumenau - SC',
         link: 'https://www.google.com/maps/place/Brava+Sushi/@-26.9260607,-49.3495212,11z/data=!4m10!1m2!2m1!1sbrava+sushi!3m6!1s0x94df18934b9df887:0x2526b64f0e579927!8m2!3d-26.9260607!4d-49.0611301!15sCgticmF2YSBzdXNoaSIDiAEBWg0iC2JyYXZhIHN1c2hpkgETamFwYW5lc2VfcmVzdGF1cmFudOABAA!16s%2Fg%2F11cmt5g7fq?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'
       },
+      {
+        nome: 'Nonno Nico Restô Bar',
+        endereco: 'Rua Antônio da Veiga, 213 - Victor Konder, Blumenau - SC',
+        link: 'https://www.google.com/maps/place/Nonno+Nico+Restobar/@-26.9069831,-49.083006,17z/data=!3m1!4b1!4m6!3m5!1s0x94df1f925f65034b:0xd4806117f333ebee!8m2!3d-26.906988!4d-49.0783926!16s%2Fg%2F11grtmprtj?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'
+      },
     ]
   },
   {
-    nome: 'Rota Gastronomica 2',
+    nome: 'Rota de Comida Rápida',
     icone: 'material-symbols:fastfood-rounded',
     locais: [
       {
@@ -85,6 +103,11 @@ const rotas = [
         link: 'https://www.google.com/maps/place/Museu+da+Fam%C3%ADlia+Colonial/@-26.9197033,-49.0654369,17z/data=!3m1!4b1!4m6!3m5!1s0x94df18c056db1295:0x2369d36a3e2713de!8m2!3d-26.9197033!4d-49.0654369!16s%2Fg%2F11b62rn0dg?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'
       },
       {
+        nome: 'Norden Bar & Biergarten',
+        endereco: 'Rua Xavantina, 100 - Boa Vista, Blumenau - SC',
+        link: 'https://www.google.com/maps/place/Norden+Blumenau/@-26.8996433,-49.0801889,17z/data=!3m1!4b1!4m6!3m5!1s0x94df1f708192624b:0x47182bd2bb404747!8m2!3d-26.8996482!4d-49.0755755!16s%2Fg%2F11rd4633mh?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'      
+      },
+      {
         nome: 'The Cap Pizzaria',
         endereco: 'Rua Cap. Euclídes de Castro, 43 - Loja B - Centro, Blumenau - SC',
         link: 'https://www.google.com/maps/place/Cap+Pizza/@-26.9204776,-49.0679084,17z/data=!3m1!4b1!4m6!3m5!1s0x94df1984bfaef137:0x2025b21d5ae33a45!8m2!3d-26.9204824!4d-49.0653335!16s%2Fg%2F11kp988q8_?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D' 
@@ -95,11 +118,7 @@ const rotas = [
         link: 'https://www.google.com/maps/place/Aikau+Poke/@-26.9217245,-49.0684116,17z/data=!3m1!4b1!4m6!3m5!1s0x94df18ea63385507:0x4456a22a410ff81c!8m2!3d-26.9217294!4d-49.0637982!16s%2Fg%2F11dxkqqt0t?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D' 
       },
     
-      {
-        nome: 'Nonno Nico Restô Bar',
-        endereco: 'Rua Antônio da Veiga, 213 - Victor Konder, Blumenau - SC',
-        link: 'https://www.google.com/maps/place/Nonno+Nico+Restobar/@-26.9069831,-49.083006,17z/data=!3m1!4b1!4m6!3m5!1s0x94df1f925f65034b:0xd4806117f333ebee!8m2!3d-26.906988!4d-49.0783926!16s%2Fg%2F11grtmprtj?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'
-      },
+ 
       {
         nome: 'Don Peppone',
         endereco: 'Rua 7 de Setembro, 2013 - Centro, Blumenau - SC',
@@ -112,13 +131,13 @@ const rotas = [
     icone: 'ri:beer-fill',
     locais: [
       {
-        nome: 'My Beer Factory & Pub',
-        endereco: 'Alameda Rio Branco, 346 - Jardim Blumenau, Blumenau - SC',
-        link: 'https://www.google.com/maps/place/My+Beer+Factory+%26+Pub/@-26.925445,-49.0641427,17z/data=!3m1!4b1!4m6!3m5!1s0x94df19343e4818fb:0x3d2bf801732856d3!8m2!3d-26.9254498!4d-49.0615678!16s%2Fg%2F11h_t29zwn?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D' },
-      {
         nome: 'Stannis Pub',
         endereco: 'Rua Padre Jacobs, 15B - Centro, Blumenau - SC',
         link: 'https://www.google.com/maps/place/Stannis+Pub+-+Blumenau/@-26.9198194,-49.0680824,17z/data=!3m1!4b1!4m6!3m5!1s0x94df195ff055fd87:0x801eecfe186c9539!8m2!3d-26.9198242!4d-49.0655075!16s%2Fg%2F11gy0s5xzt?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'  },
+        {
+          nome: 'My Beer Factory & Pub',
+          endereco: 'Alameda Rio Branco, 346 - Jardim Blumenau, Blumenau - SC',
+          link: 'https://www.google.com/maps/place/My+Beer+Factory+%26+Pub/@-26.925445,-49.0641427,17z/data=!3m1!4b1!4m6!3m5!1s0x94df19343e4818fb:0x3d2bf801732856d3!8m2!3d-26.9254498!4d-49.0615678!16s%2Fg%2F11h_t29zwn?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D' },
       {
         nome: 'Balbúrdia',
         endereco: 'Rua Antônio da Veiga, 464 - Itoupava Seca, Blumenau - SC',
@@ -154,5 +173,29 @@ const rotas = [
 </script>
 
 <style>
+.page-container {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 16px; /* Adiciona espaço no topo */
+  margin: 0;
+  width: 100%;
+}
 
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+  .page-container {
+    padding-top: 8px;
+  }
+
+  h1.text-4xl {
+    font-size: 2.5rem;
+    margin-top: 16px;
+  }
+}
+
+li::before {
+    content: '';
+    margin-left: 0;
+
+}
 </style>

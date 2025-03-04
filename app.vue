@@ -30,4 +30,19 @@ li::before {
     /* margin-left: -1em; */
 }
 
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #9f7cf1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8b5cf6;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
 </style> 

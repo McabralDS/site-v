@@ -4,7 +4,7 @@
   </script>
 
 <template>
-<div class="w-screen h-screen flex  justify-center items-center  p-4">
+<div class="w-screen flex  justify-center items-center  p-4">
 
 
   <slot />
