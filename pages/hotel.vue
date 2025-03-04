@@ -31,17 +31,17 @@
             </tr>
             </tbody>
             <tfoot>
-                <tr class="border px-4 py-2 text-center">
+                <tr class="border px-4 py-2 text-left ml-4">
                     <td colspan="5">
                         <ul>
                             <li>
-                                <strong>Preços estimados em quartos para casais ou triplos</strong>
+                                <strong>Preços estimados em quartos para casais ou triplos.</strong>
                             </li>
                             <li>
-                                <strong>Com café da Manhã incluso</strong>
+                                <strong>Café da Manhã incluso.</strong>
                             </li>
                             <li>
-                                <strong>Avaliação conforme padrão Katherine de Qualidade</strong>
+                                <strong>Avaliação conforme padrão Katherine de Qualidade.</strong>
                             </li>
                         </ul>
                     </td>
@@ -49,7 +49,10 @@
             </tfoot>
         </table>
 
-        <Button @click="voltar" class="mt-4 px-4 py-2 bg-purple-400 text-white rounded">Voltar</Button>
+        <div class="flex flex-row items-center justify-center space-x-4">
+            <!-- <Button class="mt-4 px-2 py-2 bg-green-400 text-white rounded">Ver Mapa </Button> -->
+            <Button @click="navigateTo('/')" class="mt-4 px-4 py-2 bg-purple-400 text-white rounded">Voltar</Button>
+        </div>
     </div>
         
 
@@ -134,9 +137,4 @@
             link: 'https://www.booking.com/hotel/br/zandona-blumenau.pt-br.html?aid=304142&label=gen173nr-1FCAEoggI46AdILVgEaCCIAQGYAS24AQfIAQzYAQHoAQH4AQKIAgGoAgO4AomEmb4GwAIB0gIkMjIyNjNkYmItNzFjYy00MmYzLTk5YWItZTk5YWI1N2FiMTA32AIF4AIB&sid=d68b19549396974a157cb2201903d150&age=0&all_sr_blocks=537771904_264133547_3_41_0_603326&checkin=2025-03-22&checkout=2025-03-23&dest_id=-629420&dest_type=city&dist=0&group_adults=3&group_children=0&hapos=7&highlighted_blocks=537771904_264133547_3_41_0_603326&hpos=7&matching_block_id=537771904_264133547_3_41_0_603326&no_rooms=1&req_adults=3&req_children=0&room1=A%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=537771904_264133547_3_41_0_603326_42900&srepoch=1741046545&srpvid=1186a888e3d30018&type=total&ucfs=1& '
         },
     ]
-
-    const voltar = () => {
-        navigateTo('/');
-    }
-
 </script>

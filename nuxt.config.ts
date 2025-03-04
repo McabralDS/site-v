@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['shadcn-nuxt', '@nuxtjs/tailwindcss'],
+  modules: ['shadcn-nuxt', '@nuxtjs/tailwindcss', 'nuxt-icon'],
   shadcn: {
     /**
      * Prefix for all the imported component

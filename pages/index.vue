@@ -26,13 +26,13 @@
     <nuxt-link to="/turismo" class="planet planet2">
       <span class="planet-text">Turismo</span>
     </nuxt-link>
-    <nuxt-link to="/earth" class="planet planet3">
+    <nuxt-link to="/alimentacao" class="planet planet3">
       <span class="planet-text">Alimentação</span>
     </nuxt-link>
-    <nuxt-link to="/mars" class="planet planet4">
+    <nuxt-link to="/presentes" class="planet planet4">
       <span class="planet-text">Lista de Presentes</span>
     </nuxt-link>
-    <nuxt-link to="/jupiter" class="planet planet5">
+    <nuxt-link to="/fotos" class="planet planet5">
       <span class="planet-text">Registro de Viagem</span>
     </nuxt-link>
   </div>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    
+    <p>As imagens serão disponibilizadas após o evento. Prepare-se para uma jornada incrível pelo espaço!</p>
+    <Button @click="navigateTo('/')" class="mt-4 px-4 py-2 bg-purple-400 text-white rounded">Voltar</Button>
+
   </div>
 </template>
 
