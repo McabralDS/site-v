@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'shadcn-nuxt',
     '@nuxtjs/tailwindcss',
-    // Remova 'nuxt-icon' pois você já está usando '@nuxt/icon'
+    // Remova o módulo daqui e vamos adicioná-lo como um plugin
   ],
   
   // Configurações de CSS global
