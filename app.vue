@@ -5,29 +5,36 @@
 </template>
 
 <style setup>
-
-body {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
-  font-family: 'Theseasons';
-  background: linear-gradient(to bottom, #8b5cf6, white );
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Theseasons', sans-serif;
+  background: linear-gradient(to bottom, #8b5cf6, white);
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
 }
 
 li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-left: 1.5em;
 }
 
 li::before {
-    content: "★";
-    color: #e4b417;
-    display: inline-block;
-    width: 1em;
-    /* margin-left: -1em; */
+  content: "★";
+  color: #e4b417;
+  display: inline-block;
+  position: absolute;
+  left: 0;
 }
 
 /* Estilizando a barra de rolagem */
@@ -44,5 +51,4 @@ li::before {
   border-radius: 10px;
   border: 2px solid transparent;
 }
-
-</style> 
+</style>
