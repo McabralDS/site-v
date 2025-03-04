@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'shadcn-nuxt',
     '@nuxtjs/tailwindcss',
-    'nuxt-icon'
+    // Remova 'nuxt-icon' pois você já está usando '@nuxt/icon'
   ],
   
   // Configurações de CSS global
@@ -49,9 +49,14 @@ export default defineNuxtConfig({
   imports: {
     autoImport: true
   },
-  // Configuração do Nitro (servidor)
+  // Configuração do Nitro para Vercel
   nitro: {
-    // Adicione esta linha para solucionar problemas de inicialização
-    preset: 'node-server'
+    // Use o preset 'vercel' em vez de 'node-server' para implantar no Vercel
+    preset: 'vercel',
+    
+    // Configurações adicionais para resolver problemas de inicialização
+    routeRules: {
+      '/**': { cors: true }
+    }
   }
 })
