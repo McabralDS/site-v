@@ -26,7 +26,7 @@
 
   <div class="flex flex-row items-center justify-center space-x-4">
       <!-- <Button class="mt-4 px-2 py-2 bg-green-400 text-white rounded">Ver Mapa </Button> -->
-      <Button @click="navigateTo('/')" class="mt-4 px-4 py-2 bg-purple-400 text-white rounded">Voltar</Button>
+      <button @click="() => navigateTo('/')" class="mt-4 px-4 py-2 bg-purple-400 text-white rounded">Voltar</button>
   </div>
 </div>
 </template>
