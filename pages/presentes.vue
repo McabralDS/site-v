@@ -175,10 +175,6 @@ const cartTotal = computed(() => {
   }, 0).toFixed(2);
 });
 
-const navigateTo = (path: string) => {
-  // Função para navegar para outra rota
-};
-
 </script>
 
 <style>
