@@ -7,31 +7,31 @@
         <div 
           v-for="rota in rotas" 
           :key="rota.nome" 
-          class="bg-white p-6 rounded-lg shadow-lg border-4 border-amber-300 flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)]"
+          class="bg-white p-6 rounded-lg shadow-lg border-4 border-amber-300 flex flex-col w-full md:w-[calc(50%-1rem)]"
         >
           <h2 class="text-2xl font-bold text-center mb-4 flex items-center justify-center">
-            <Icon :name="rota.icone || 'material-symbols:restaurant'" size="28" class="text-amber-500 mr-2" />
-            {{ rota.nome }}
+        <Icon :name="rota.icone || 'material-symbols:restaurant'" size="28" class="text-amber-500 mr-2" />
+        {{ rota.nome }}
           </h2>
           
-            <table class="w-full text-left">
-            <tbody>
-              <tr v-for="local in rota.locais" :key="local.nome" class="border-b border-gray-200 last:border-0">
-              <td class="py-3 align-top">
-                <a 
-                :href="local.link" 
-                target="_blank" 
-                class="text-blue-600 hover:text-blue-800 font-medium flex items-center"
-                >
-                <Icon name="mdi:map-marker" class="mr-1 text-red-500" />
-                {{ local.nome }}
-                <Icon name="mdi:open-in-new" size="14" class="ml-1" />
-                </a>
-                <p class="text-gray-600 text-sm ml-6">{{ local.endereco }}</p>
-              </td>
-              </tr>
-            </tbody>
-            </table>
+        <table class="w-full text-left">
+        <tbody>
+          <tr v-for="local in rota.locais" :key="local.nome" class="border-b border-gray-200 last:border-0">
+          <td class="py-3 align-top">
+            <a 
+            :href="local.link" 
+            target="_blank" 
+            class="text-blue-600 hover:text-blue-800 font-medium flex items-center"
+            >
+            <Icon name="mdi:map-marker" class="mr-1 text-red-500" />
+            {{ local.nome }}
+            <Icon name="mdi:open-in-new" size="14" class="ml-1" />
+            </a>
+            <p class="text-gray-600 text-sm ml-6">{{ local.endereco }}</p>
+          </td>
+          </tr>
+        </tbody>
+        </table>
         </div>
       </div>
 

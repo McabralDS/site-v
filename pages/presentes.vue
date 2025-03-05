@@ -22,10 +22,10 @@
         </div>
         <div>
         <p class="text-gray-600 text-center">Chave PIX</p>
-        <img src="/assets/images/qrcode.png" alt="Chave PIX" class="w-46 h-46 mx-auto" />
+        <img src="/assets/images/qrcode.png" @click="copyPaymentLink" alt="Chave PIX" class="w-46 h-46 mx-auto" />
         <button
           @click="copyPaymentLink"
-          class="mt-4 px-4 py-2 bg-green-400 text-white rounded"
+          class="mt-4 px-4 py-2 bg-green-400 text-white rounded mx-auto block"
         >
           Copiar Link de Pagamento
         </button>

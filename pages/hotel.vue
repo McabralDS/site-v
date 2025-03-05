@@ -3,49 +3,41 @@
 
         <h1 class="text-4xl text-white underline">Hotelaria</h1>
         
-        <table class="table-auto">
-            <thead class="bg-white border">	
+        <table class="table-auto border-collapse w-full">
+            <thead class="bg-white border-b-2 border-gold">	
             <tr>
-                <th class="px-4 py-2">Nome</th>
-                <th class="px-4 py-2">Distancia</th>
-                <th class="px-4 py-2">Preço</th>
-                <th class="px-4 py-2">Estrelas</th>
+            <th class="px-4 py-2 text-left text-gold">Nome</th>
+            <th class="px-4 py-2 text-left text-gold">Distancia</th>
+            <th class="px-4 py-2 text-left text-gold">Preço</th>
+            <th class="px-4 py-2 text-left text-gold">Estrelas</th>
             </tr>
             </thead>
-            <tbody class=" text-center">
+            <tbody class="bg-white text-center">
             <tr v-for="hotel in hoteis" :key="hotel.nome" :class="{'row-destaque': hotel.destaque}">
-                <td class="border px-4 py-2 ">
-                    <a class="hover:underline" :href="hotel.link" target="_blank">{{ hotel.nome }}
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-1.414 1.414a4 4 0 01-5.656-5.656l1.414-1.414m5.656-5.656a4 4 0 015.656 5.656l-1.414 1.414a4 4 0 01-5.656-5.656l1.414-1.414" />
-                        </svg>
-                    </a>
-                </td>
-                <td class="border px-4 py-2">{{ hotel.distancia }}
-                    
-                </td>
-                <td class="border px-4 py-2">R$ {{ hotel.preco }}</td>
-                <td class="border px-4 py-2 text-center">
+            <td class="border px-4 py-2">
+                <a class="hover:underline text-blue-500" :href="hotel.link" target="_blank">{{ hotel.nome }}
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-1.414 1.414a4 4 0 01-5.656-5.656l1.414-1.414m5.656-5.656a4 4 0 015.656 5.656l-1.414 1.414a4 4 0 01-5.656-5.656l1.414-1.414" />
+                </svg>
+                </a>
+            </td>
+            <td class="border px-4 py-2">{{ hotel.distancia }}</td>
+            <td class="border px-4 py-2">R$ {{ hotel.preco }}</td>
+            <td class="border px-4 py-2 text-center">
                 <span v-for="n in hotel.estrelas" :key="n" class="text-yellow-500">★</span>
-                </td>
+            </td>
             </tr>
             </tbody>
-            <tfoot>
-                <tr class="border px-4 py-2 text-left ml-4">
-                    <td colspan="5">
-                        <ul>
-                            <li>
-                                <strong>Preços estimados em quartos para casais ou triplos.</strong>
-                            </li>
-                            <li>
-                                <strong>Café da Manhã incluso.</strong>
-                            </li>
-                            <li>
-                                <strong>Avaliação conforme padrão Katherine de Qualidade.</strong>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+            <tfoot class="bg-white border-t-2 border-gold">
+            <tr>
+                <td colspan="4" class="px-4 py-2 text-left">
+                <ul class="list-disc list-inside">
+                    <li><strong>Preços estimados em quartos para casais ou triplos.</strong></li>
+                    <li><strong>Café da Manhã incluso.</strong></li>
+                    <li><strong>Avaliação conforme padrão Katherine de Qualidade.</strong></li>
+                </ul>
+                </td>
+            </tr>
             </tfoot>
         </table>
 
