@@ -20,23 +20,23 @@
       <path class="orbit-path" d="M20,450 Q50,450 80,450" />
     </svg>
     
+    <nuxt-link to="/info" class="planet planet6">
+      <span class="planet-text">Comece por Aqui!</span>
+    </nuxt-link>
     <nuxt-link to="/hotel" class="planet planet1">
       <span class="planet-text">Hospedagem</span>
     </nuxt-link>
-    <nuxt-link to="/turismo" class="planet planet2">
-      <span class="planet-text">Turismo</span>
-    </nuxt-link>
     <nuxt-link to="/alimentacao" class="planet planet3">
       <span class="planet-text">Alimentação</span>
+    </nuxt-link>
+    <nuxt-link to="/turismo" class="planet planet2">
+      <span class="planet-text">Turismo</span>
     </nuxt-link>
     <nuxt-link to="/presentes" class="planet planet4">
       <span class="planet-text">Lista de Presentes</span>
     </nuxt-link>
     <nuxt-link to="/fotos" class="planet planet5">
       <span class="planet-text">Registro de Viagem</span>
-    </nuxt-link>
-    <nuxt-link to="/info" class="planet planet6">
-      <span class="planet-text">Comece por Aqui!</span>
     </nuxt-link>
 
   </div>
