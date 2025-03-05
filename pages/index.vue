@@ -35,6 +35,10 @@
     <nuxt-link to="/fotos" class="planet planet5">
       <span class="planet-text">Registro de Viagem</span>
     </nuxt-link>
+    <nuxt-link to="/info" class="planet planet6">
+      <span class="planet-text">Comece por Aqui!</span>
+    </nuxt-link>
+
   </div>
 </template>
 
@@ -103,7 +107,7 @@
   height: 95px;
   top: 15%;
   left: 10%;
-  background: radial-gradient(circle, #ffcc00, #ff9900); /* Mercury */
+  background: radial-gradient(circle, #078b3e, #08a35b); /* Mercury */
 }
 
 .planet2 {
@@ -127,7 +131,7 @@
   height: 160px;
   bottom: 20%;
   right: 20%;
-  background: radial-gradient(circle, #ff3300, #0000ff); /* Mars */
+  background: radial-gradient(circle, #25c4c4, #0000ff); /* Mars */
 }
 
 .planet5 {
@@ -139,9 +143,19 @@
   background: radial-gradient(circle, #ff66cc, #800080); /* Jupiter */
 }
 
+.planet6 {
+  width: 180px;
+  height: 180px;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #ffcc00, #ff9900); /* Saturn */
+}
+
 .planet5:hover {
   transform: translateX(-50%) scale(1.2);
 }
+
 
 /* Media query para dispositivos móveis */
 @media (max-width: 768px) {
@@ -276,6 +290,11 @@ margin-left: 20%;
   .planet5 {
     width: 90px;
     height: 90px;
+  }
+
+  .planet6 {
+    width: 95px;
+    height: 95px;
   }
   
   .mission-title {
